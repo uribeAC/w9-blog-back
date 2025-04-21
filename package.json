@@ -6,7 +6,8 @@
     "start": "node .",
     "build": "tsc",
     "build:dev": "tsc --watch",
-    "start:dev": "node . --watch"
+    "start:dev": "node . --watch",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -14,10 +15,17 @@
   "type": "module",
   "description": "",
   "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "@eslint/js": "^9.25.1",
     "@types/node": "^22.13.1",
-    "typescript": "^5.7.3"
-  },
-  "dependencies": {
-    "serve": "^14.2.4"
+    "eslint": "^9.25.1",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
+    "prettier": "3.5.3",
+    "serve": "^14.2.4",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.31.0"
   }
 }

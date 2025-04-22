@@ -1,5 +1,5 @@
-import startServer from "./server/startServer.js";
 import "dotenv/config";
+import startServer from "./server/startServer.js";
 
 const port = process.env.PORT || 4000;
 

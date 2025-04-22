@@ -5,7 +5,7 @@ describe("Given the checkHealthStatus middleware", () => {
   describe("When it receives a response", () => {
     const req = {} as Request;
     const res = {
-      status: jest.fn().mockReturnThis().mockClear(),
+      status: jest.fn().mockReturnThis(),
       json: jest.fn(),
     } as Pick<Response, "status" | "json">;
 

@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { Model } from "mongoose";
 import { PostStructure } from "../types.js";
 import { PostControllerStructure } from "./types.js";
-import { debug } from "console";
 
 class PostController implements PostControllerStructure {
   constructor(private postModel: Model<PostStructure>) {}
@@ -23,7 +22,6 @@ class PostController implements PostControllerStructure {
       .limit(5)
       .exec();
 
-    debug(posts);
     res.status(200).json({ posts: posts, postsTotal: postsTotal });
   };
 }

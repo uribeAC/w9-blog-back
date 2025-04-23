@@ -6,7 +6,7 @@ import { PostControllerStructure } from "./types.js";
 class PostController implements PostControllerStructure {
   constructor(private postModel: Model<PostStructure>) {}
 
-  public async getPostsPage(req: Request, res: Response): Promise<void> {
+  public getPostsPage = async (req: Request, res: Response): Promise<void> => {
     let { page } = req.params;
 
     if (!page) {
@@ -23,7 +23,7 @@ class PostController implements PostControllerStructure {
       .exec();
 
     res.status(200).json({ posts: posts, postsTotal: postsTotal });
-  }
+  };
 }
 
 export default PostController;

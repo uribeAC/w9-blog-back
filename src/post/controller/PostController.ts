@@ -2,11 +2,12 @@ import { Request, Response } from "express";
 import { Model } from "mongoose";
 import { PostStructure } from "../types.js";
 import { PostControllerStructure } from "./types.js";
+import { debug } from "console";
 
 class PostController implements PostControllerStructure {
   constructor(private postModel: Model<PostStructure>) {}
 
-  public async getPostsPage(req: Request, res: Response): Promise<void> {
+  public getPostsPage = async (req: Request, res: Response): Promise<void> => {
     let { page } = req.params;
 
     if (!page) {
@@ -22,8 +23,9 @@ class PostController implements PostControllerStructure {
       .limit(5)
       .exec();
 
+    debug(posts);
     res.status(200).json({ posts: posts, postsTotal: postsTotal });
-  }
+  };
 }
 
 export default PostController;

@@ -11,7 +11,7 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
-describe("Given the getPostsPage controller of PostController", () => {
+describe("Given the getPostsPage method of PostController", () => {
   const res = {
     status: jest.fn().mockReturnThis(),
     json: jest.fn(),

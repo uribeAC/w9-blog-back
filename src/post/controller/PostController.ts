@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
+import { Model } from "mongoose";
 import { PostStructure } from "../types.js";
 import { PostControllerStructure } from "./types.js";
-import { Model } from "mongoose";
 
 class PostController implements PostControllerStructure {
   constructor(private postModel: Model<PostStructure>) {}

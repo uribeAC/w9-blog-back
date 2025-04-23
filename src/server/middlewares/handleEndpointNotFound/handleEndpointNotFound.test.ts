@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from "express";
 import handleEndpointNotFound from "./handleEndpointNotFound.js";
 
 describe("Given the handleEndpointNotFound middleware", () => {
-  describe("When it recieves a next function", () => {
+  describe("When it receives a next function", () => {
     test("Then it should call the next function with an error 'Endpoint not found'", () => {
       const error = new ServerError(404, "Endpoint not found");
 

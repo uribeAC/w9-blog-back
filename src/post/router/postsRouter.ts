@@ -6,8 +6,6 @@ const postsRouter = Router();
 
 const postController = new PostController(Post);
 
-postsRouter.get("/:page", postController.getPostsPage);
-
 postsRouter.get("/", postController.getPostsPage);
 
 export default postsRouter;

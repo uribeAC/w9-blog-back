@@ -19,8 +19,8 @@ describe("Given the getPostsPage method of PostController", () => {
 
   describe("When it receives a response", () => {
     const req = {
-      params: { page: "" },
-    } as Pick<Request, "params">;
+      query: { page: "" },
+    } as Pick<Request, "query">;
 
     const postModel: Pick<Model<PostStructure>, "find" | "countDocuments"> = {
       find: jest.fn().mockReturnValue({
@@ -82,8 +82,8 @@ describe("Given the getPostsPage method of PostController", () => {
     const pageNumber = 2;
 
     const req = {
-      params: { page: pageNumber.toString() },
-    } as Pick<Request, "params">;
+      query: { page: pageNumber.toString() },
+    } as Pick<Request, "query">;
 
     const postModel: Pick<Model<PostStructure>, "find" | "countDocuments"> = {
       find: jest.fn().mockReturnValue({

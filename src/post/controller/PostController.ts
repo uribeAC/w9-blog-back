@@ -1,13 +1,16 @@
-import { Request, Response } from "express";
+import { Response } from "express";
 import { Model } from "mongoose";
 import { PostStructure } from "../types.js";
-import { PostControllerStructure } from "./types.js";
+import { PostControllerStructure, PostRequest } from "./types.js";
 
 class PostController implements PostControllerStructure {
   constructor(private postModel: Model<PostStructure>) {}
 
-  public getPostsPage = async (req: Request, res: Response): Promise<void> => {
-    let { page } = req.query;
+  public getPostsPage = async (
+    req: PostRequest,
+    res: Response,
+  ): Promise<void> => {
+    let page = req.query.page;
 
     if (!page) {
       page = "1";

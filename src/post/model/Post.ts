@@ -4,7 +4,7 @@ import { PostStructure } from "../types.js";
 const postSchema = new Schema<PostStructure>({
   publishDate: {
     type: Date,
-    required: true,
+    default: Date.now(),
   },
   author: {
     type: String,
@@ -24,7 +24,7 @@ const postSchema = new Schema<PostStructure>({
   },
   tags: {
     type: [String],
-    required: true,
+    default: ["food"],
   },
   content: {
     type: String,

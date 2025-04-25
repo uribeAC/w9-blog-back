@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 import { PostStructure } from "../../types.js";
 import PostController from "../PostController.js";
 import { animeFoodPosts } from "../../fixtures.js";
+import { PostRequest } from "../types.js";
 
 let originalAnimeFoodPosts = [...animeFoodPosts];
 
@@ -44,7 +45,7 @@ describe("Given the getPostsPage method of PostController", () => {
         postModel as Model<PostStructure>,
       );
 
-      await postController.getPostsPage(req as Request, res as Response);
+      await postController.getPostsPage(req as PostRequest, res as Response);
 
       expect(res.status).toHaveBeenCalledWith(200);
     });
@@ -56,7 +57,7 @@ describe("Given the getPostsPage method of PostController", () => {
         postModel as Model<PostStructure>,
       );
 
-      await postController.getPostsPage(req as Request, res as Response);
+      await postController.getPostsPage(req as PostRequest, res as Response);
 
       expect(res.json).toHaveBeenCalledWith(
         expect.objectContaining({ posts: expectedPostsPage }),
@@ -70,7 +71,7 @@ describe("Given the getPostsPage method of PostController", () => {
         postModel as Model<PostStructure>,
       );
 
-      await postController.getPostsPage(req as Request, res as Response);
+      await postController.getPostsPage(req as PostRequest, res as Response);
 
       expect(res.json).toHaveBeenCalledWith(
         expect.objectContaining({ postsTotal: expectedPostsTotal }),
@@ -122,7 +123,7 @@ describe("Given the getPostsPage method of PostController", () => {
         postModel as Model<PostStructure>,
       );
 
-      await postController.getPostsPage(req as Request, res as Response);
+      await postController.getPostsPage(req as PostRequest, res as Response);
 
       expect(res.json).toHaveBeenCalledWith(
         expect.objectContaining({ posts: expectedPostsPage2 }),

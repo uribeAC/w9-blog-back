@@ -7,7 +7,7 @@ class PostController implements PostControllerStructure {
   constructor(private postModel: Model<PostStructure>) {}
 
   public getPostsPage = async (req: Request, res: Response): Promise<void> => {
-    let page = req.query.page;
+    let { page } = req.query;
 
     if (!page) {
       page = "1";

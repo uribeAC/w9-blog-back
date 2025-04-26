@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { Model } from "mongoose";
 import { PostData, PostStructure } from "../types.js";
 import { PostControllerStructure, PostRequest } from "./types.js";
+import ServerError from "../../server/ServerError/ServerError.js";
 
 class PostController implements PostControllerStructure {
   constructor(private postModel: Model<PostStructure>) {}
@@ -38,7 +39,9 @@ class PostController implements PostControllerStructure {
         (post) => post.title.toLowerCase() === newPost.title.toLowerCase(),
       )
     ) {
-      res.status(404).json({ error: "Post already exists" });
+      const error = new ServerError(404, "Post already exists");
+
+      res.status(error.statusCode).json(error.message);
       return;
     }
 

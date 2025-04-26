@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 
 export interface PostControllerStructure {
-  getPostsPage: (req: PostRequest, res: Response) => void;
+  getPostsPage: (req: PostRequest, res: Response) => Promise<void>;
+  addPost: (req: Request, res: Response) => Promise<void>;
 }
 
 export type PostRequest = Request<

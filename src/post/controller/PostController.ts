@@ -1,6 +1,6 @@
-import { Response } from "express";
+import { Request, Response } from "express";
 import { Model } from "mongoose";
-import { PostStructure } from "../types.js";
+import { PostData, PostStructure } from "../types.js";
 import { PostControllerStructure, PostRequest } from "./types.js";
 
 class PostController implements PostControllerStructure {
@@ -26,6 +26,25 @@ class PostController implements PostControllerStructure {
       .exec();
 
     res.status(200).json({ posts: posts, postsTotal: postsTotal });
+  };
+
+  public addPost = async (req: Request, res: Response): Promise<void> => {
+    const newPost = req.body as PostData;
+
+    const posts = await this.postModel.find().exec();
+
+    if (
+      posts.some(
+        (post) => post.title.toLowerCase() === newPost.title.toLowerCase(),
+      )
+    ) {
+      res.status(404).json({ error: "Post already exists" });
+      return;
+    }
+
+    this.postModel.insertOne(newPost);
+
+    res.status(201).json(newPost);
   };
 }
 

@@ -8,3 +8,8 @@ export interface PostStructure {
   tags: string[];
   content: string;
 }
+
+export type PostData = Omit<PostStructure, "_id" | "publishDate" | "tags"> & {
+  publishDate?: string;
+  tags?: string[];
+};

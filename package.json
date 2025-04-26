@@ -26,6 +26,7 @@
     "@types/jest": "^29.5.14",
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.13.1",
+    "@types/cors": "^2.8.17",
     "eslint": "^9.25.1",
     "globals": "^16.0.0",
     "husky": "^9.1.7",
@@ -41,6 +42,7 @@
   },
   "dependencies": {
     "chalk": "^5.4.1",
+    "cors": "^2.8.5",
     "debug": "^4.4.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",

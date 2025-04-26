@@ -63,11 +63,15 @@ class PostController implements PostControllerStructure {
     const idLength = 24;
 
     if (postId.length !== idLength) {
-      const error = new ServerError(404, "Id not valid");
+      const error = new ServerError(406, "Id not valid");
       next(error);
+
+      return;
     }
 
-    const deletedPost = await this.postModel.findOneAndDelete({ _id: postId });
+    const deletedPost = await this.postModel
+      .findOneAndDelete({ _id: postId })
+      .exec();
 
     if (!deletedPost) {
       const error = new ServerError(404, "Post not found");

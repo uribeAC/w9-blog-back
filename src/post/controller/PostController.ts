@@ -43,9 +43,15 @@ class PostController implements PostControllerStructure {
         (post) => post.title.toLowerCase() === newPost.title.toLowerCase(),
       )
     ) {
-      const error = new ServerError(404, "Post already exists");
+      const error = new ServerError(409, "Post already exists");
 
       next(error);
+    }
+
+    if (!newPost.imageAlt) {
+      const foodName = newPost.title.split(":")[0];
+
+      newPost.imageAlt = `Plato de ${foodName}`;
     }
 
     this.postModel.insertOne(newPost);

@@ -46,11 +46,40 @@ class PostController implements PostControllerStructure {
       const error = new ServerError(409, "Post already exists");
 
       next(error);
+
+      return;
     }
 
     this.postModel.insertOne(newPost);
 
-    res.status(201).json(newPost);
+    if (!newPost.imageAlt || newPost.imageAlt === "") {
+      const foodName = newPost.title.split(":")[0];
+
+      newPost.imageAlt = `Plato de ${foodName}`;
+    }
+
+    if (newPost.publishDate === "") {
+      delete newPost.publishDate;
+    }
+
+    if (newPost.tags === "") {
+      delete newPost.tags;
+    }
+
+    if (newPost.tags) {
+      const tags = newPost.tags as string;
+      const trimmedTags = tags
+        .replaceAll(/[.,;#]/g, " ")
+        .replaceAll(/\s/g, " ")
+        .split(" ")
+        .filter((tag) => tag !== "");
+
+      newPost.tags = trimmedTags;
+    }
+
+    const addedPost = await this.postModel.insertOne(newPost);
+
+    res.status(201).json(addedPost);
   };
 
   public deletePost = async (

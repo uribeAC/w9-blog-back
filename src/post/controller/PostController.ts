@@ -109,6 +109,36 @@ class PostController implements PostControllerStructure {
 
     res.status(200).json(deletedPost);
   };
+
+  public getPostById = async (
+    req: PostRequest,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
+    const postId = req.params.postId;
+
+    const idLenght = 24;
+
+    if (postId.length !== idLenght) {
+      const error = new ServerError(406, "Id not valid");
+
+      next(error);
+
+      return;
+    }
+
+    const foundPost = await this.postModel.findById({ _id: postId }).exec();
+
+    if (!foundPost) {
+      const error = new ServerError(404, "Post not found");
+
+      next(error);
+
+      return;
+    }
+
+    res.status(200).json(foundPost);
+  };
 }
 
 export default PostController;

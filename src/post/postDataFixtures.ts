@@ -22,6 +22,8 @@ export const paellaMariscosPostData: PostData = {
   imageUrl: "http://paellamariscos.webp",
   imageAlt: "Paella de mariscos servida en una paellera tradicional",
   author: "Albert Adrià",
+  publishDate: "",
+  tags: "",
 };
 
 export const postsDataDixtures = [

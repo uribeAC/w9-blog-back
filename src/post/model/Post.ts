@@ -30,6 +30,14 @@ const postSchema = new Schema<PostStructure>({
     type: String,
     required: true,
   },
+  smallImageUrl: {
+    type: String,
+    required: true,
+  },
+  detailImageUrl: {
+    type: String,
+    required: true,
+  },
 });
 
 const Post = model("Post", postSchema, "Posts");

@@ -7,6 +7,8 @@ export interface PostStructure {
   imageAlt: string;
   tags: string[];
   content: string;
+  smallImageUrl: string;
+  detailImageUrl: string;
 }
 
 export type PostData = Omit<PostStructure, "_id" | "publishDate" | "tags"> & {

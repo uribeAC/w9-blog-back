@@ -10,6 +10,8 @@ export const sailorMoonCurryPanPost: PostStructure = {
   publishDate: new Date("2025-04-23"),
   tags: ["sailormoon", "curry", "comidaanime"],
   title: "Curry-pan al estilo Sailor Moon 🌙",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };
 
 export const luffyBentoPost: PostStructure = {
@@ -22,6 +24,8 @@ export const luffyBentoPost: PostStructure = {
   publishDate: new Date("2025-04-21"),
   tags: ["onepiece", "bento", "animefood"],
   title: "Bentō pirata: la receta favorita de Luffy 🏴‍☠️",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };
 
 const tanjiroUdonPost: PostStructure = {
@@ -34,6 +38,8 @@ const tanjiroUdonPost: PostStructure = {
   publishDate: new Date("2025-04-19"),
   tags: ["demonslayer", "udon", "recetaAnime"],
   title: "Udon demoníacamente delicioso 🍜",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };
 
 const howlDesayunoPost: PostStructure = {
@@ -46,6 +52,8 @@ const howlDesayunoPost: PostStructure = {
   publishDate: new Date("2025-04-15"),
   tags: ["ghibli", "desayuno", "howl"],
   title: "Desayuno de castillo encantado 🍳✨",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };
 
 const ghibliRamenPost: PostStructure = {
@@ -58,6 +66,8 @@ const ghibliRamenPost: PostStructure = {
   publishDate: new Date("2025-04-12"),
   tags: ["ghibli", "ramen", "spiritaway"],
   title: "Ramen espiritual con sabor Ghibli 🍜👻",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };
 
 const narutoRamenPost: PostStructure = {
@@ -70,6 +80,8 @@ const narutoRamenPost: PostStructure = {
   publishDate: new Date("2025-04-10"),
   tags: ["naruto", "ramen", "ichiraku"],
   title: "Ramen ninja directo desde Ichiraku 🍥🥋",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };
 
 const totoroBentoPost: PostStructure = {
@@ -82,6 +94,8 @@ const totoroBentoPost: PostStructure = {
   publishDate: new Date("2025-04-08"),
   tags: ["totoro", "bento", "ghibli"],
   title: "Bentō con carita de Totoro 🐾🍱",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };
 
 const shokugekiEggsPost: PostStructure = {
@@ -94,6 +108,8 @@ const shokugekiEggsPost: PostStructure = {
   publishDate: new Date("2025-04-05"),
   tags: ["shokugeki", "eggs", "foodwars"],
   title: "Huevos que ganan competencias 🍳🔥",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };
 
 const pokeballDonutsPost: PostStructure = {
@@ -106,6 +122,8 @@ const pokeballDonutsPost: PostStructure = {
   publishDate: new Date("2025-04-03"),
   tags: ["pokemon", "donuts", "dulces"],
   title: "Donuts pokebola para entrenadores 🍩⚡",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };
 
 const bleachSushiPost: PostStructure = {
@@ -118,6 +136,8 @@ const bleachSushiPost: PostStructure = {
   publishDate: new Date("2025-04-01"),
   tags: ["bleach", "sushi", "animefood"],
   title: "Sushi espiritual para Shinigamis 🍣🗡️",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };
 
 const attackOnTitanMeatPost: PostStructure = {
@@ -130,6 +150,8 @@ const attackOnTitanMeatPost: PostStructure = {
   publishDate: new Date("2025-03-29"),
   tags: ["attackontitan", "carne", "sasha"],
   title: "Carne para titanes hambrientos 🍖🛡️",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };
 
 export const huevosRotosBruc159Post: PostStructure = {
@@ -141,6 +163,8 @@ export const huevosRotosBruc159Post: PostStructure = {
   publishDate: new Date("2025-04-27"),
   tags: ["huevosrotos", "bruc159", "cocinaespañola", "comfortfood"],
   title: "Huevos Rotos: el mejor plato de Bruc, 159",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };
 
 export const tortillaBetanzosPost: PostStructure = {
@@ -152,6 +176,8 @@ export const tortillaBetanzosPost: PostStructure = {
   publishDate: new Date("2025-04-27"),
   tags: ["tortilla", "betanzos", "galicia", "tradicional"],
   title: "Tortilla de Betanzos: plato estrella en Casa Pepe",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };
 
 export const paellaMariscosPost: PostStructure = {
@@ -163,6 +189,8 @@ export const paellaMariscosPost: PostStructure = {
   publishDate: new Date("2025-04-27"),
   tags: ["paella", "mariscos", "elpalmar", "valencia"],
   title: "Paella de Mariscos: disfruta de la mejor paella en El Palmar",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };
 
 export const animeFoodPosts = [

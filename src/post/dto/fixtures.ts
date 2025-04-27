@@ -10,4 +10,6 @@ export const luffyBentoPostDto: PostStructureDto = {
   publishDate: "2025-04-21",
   tags: ["onepiece", "bento", "animefood"],
   title: "Bentō pirata: la receta favorita de Luffy 🏴‍☠️",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };

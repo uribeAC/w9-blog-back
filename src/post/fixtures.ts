@@ -1,6 +1,6 @@
 import { PostStructure } from "./types.js";
 
-const sailorMoonCurryPanPost: PostStructure = {
+export const sailorMoonCurryPanPost: PostStructure = {
   _id: "1",
   author: "Sailor Chef Luna",
   content:
@@ -132,6 +132,28 @@ const attackOnTitanMeatPost: PostStructure = {
   title: "Carne para titanes hambrientos 🍖🛡️",
 };
 
+export const huevosRotosBruc159Post: PostStructure = {
+  _id: "2",
+  author: "Mario Vaquerizo",
+  content: `Los huevos rotos son una joya sencilla pero poderosa de la gastronomía española. En Bruc, 159, llevan este plato clásico a otro nivel. El plato se presenta con una cama de patatas fritas doradas, crujientes por fuera y tiernas por dentro, coronadas con huevos fritos de yema vibrante. Al romper los huevos sobre las patatas, se crea una mezcla cremosa y sabrosa que es pura felicidad. Puedes acompañarlos con jamón ibérico, chistorra o incluso trufa, según el antojo. El ambiente del lugar es acogedor, con una atención cercana que hace que cada visita sea especial. Ideal tanto para un almuerzo informal como para una cena relajada. Un plato imprescindible si quieres saborear lo mejor de la cocina tradicional española con un toque casero y auténtico.`,
+  imageUrl: "http://huevosrotos.webp",
+  imageAlt: "Plato de papatas fritas con dos huevos fritos por encima",
+  publishDate: new Date("2025-04-27"),
+  tags: ["huevosrotos", "bruc159", "cocinaespañola", "comfortfood"],
+  title: "Huevos Rotos: el mejor plato de Bruc, 159",
+};
+
+export const tortillaBetanzosPost: PostStructure = {
+  _id: "3",
+  author: "Cristina Pardo",
+  content: `La tortilla de Betanzos es todo un emblema de la cocina gallega, y en Casa Pepe saben rendirle homenaje. Con su textura jugosa y su interior casi líquido, esta tortilla celebra la pureza de los ingredientes: patatas de calidad, huevos fresquísimos y un toque justo de sal. Sin cebolla, como dicta la tradición, y con ese característico color dorado que invita a probarla de inmediato. El local respira tradición y sencillez, haciendo que cada visita sea como una escapada al corazón de Galicia. Un plato sencillo pero lleno de matices, perfecto para quienes buscan autenticidad en cada bocado.`,
+  imageUrl: "http://tortillabetanzos.webp",
+  imageAlt: "Tortilla de patata jugosa servida en un plato blanco",
+  publishDate: new Date("2025-04-27"),
+  tags: ["tortilla", "betanzos", "galicia", "tradicional"],
+  title: "Tortilla de Betanzos: plato estrella en Casa Pepe",
+};
+
 export const paellaMariscosPost: PostStructure = {
   _id: "1",
   author: "Albert Adrià",
@@ -155,4 +177,6 @@ export const animeFoodPosts = [
   shokugekiEggsPost,
   tanjiroUdonPost,
   totoroBentoPost,
+  tortillaBetanzosPost,
+  huevosRotosBruc159Post,
 ];

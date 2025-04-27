@@ -43,7 +43,7 @@ class PostController implements PostControllerStructure {
         (post) => post.title.toLowerCase() === newPost.title.toLowerCase(),
       )
     ) {
-      const error = new ServerError(404, "Post already exists");
+      const error = new ServerError(409, "Post already exists");
 
       next(error);
     }
@@ -51,6 +51,36 @@ class PostController implements PostControllerStructure {
     this.postModel.insertOne(newPost);
 
     res.status(201).json(newPost);
+  };
+
+  public deletePost = async (
+    req: PostRequest,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
+    const postId = req.params.postId;
+
+    const idLength = 24;
+
+    if (postId.length !== idLength) {
+      const error = new ServerError(406, "Id not valid");
+      next(error);
+
+      return;
+    }
+
+    const deletedPost = await this.postModel
+      .findOneAndDelete({ _id: postId })
+      .exec();
+
+    if (!deletedPost) {
+      const error = new ServerError(404, "Post not found");
+      next(error);
+
+      return;
+    }
+
+    res.status(200).json(deletedPost);
   };
 }
 

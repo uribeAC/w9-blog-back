@@ -6,6 +6,8 @@ export const huevosRotosBruc159PostData: PostData = {
   imageUrl: "http://huevosrotos.webp",
   imageAlt: "Plato de papatas fritas con dos huevos fritos por encima",
   author: "Mario Vaquerizo",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };
 
 export const tortillaBetanzosPostData: PostData = {
@@ -14,6 +16,8 @@ export const tortillaBetanzosPostData: PostData = {
   imageUrl: "http://tortillabetanzos.webp",
   imageAlt: "Tortilla de patata jugosa servida en un plato blanco",
   author: "Cristina Pardo",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };
 
 export const paellaMariscosPostData: PostData = {
@@ -24,6 +28,8 @@ export const paellaMariscosPostData: PostData = {
   author: "Albert Adrià",
   publishDate: "",
   tags: "",
+  smallImageUrl: "",
+  detailImageUrl: "",
 };
 
 export const postsDataDixtures = [

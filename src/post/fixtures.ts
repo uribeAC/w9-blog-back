@@ -12,8 +12,8 @@ const sailorMoonCurryPanPost: PostStructure = {
   title: "Curry-pan al estilo Sailor Moon 🌙",
 };
 
-const luffyBentoPost: PostStructure = {
-  _id: "2",
+export const luffyBentoPost: PostStructure = {
+  _id: "680d4b3e7a949d9fe3199b37",
   author: "Sanji el Cocinero Galante",
   content:
     "Del East Blue a tu cocina: aprende a preparar el famoso bentō que Luffy ama. ¡Ideal para llevar al trabajo o picnic!",

@@ -5,8 +5,6 @@ import handleEndpointNotFound from "./middlewares/handleEndpointNotFound/handleE
 import handleErrors from "./middlewares/handleErrors/handleErrors.js";
 import checkHealthStatus from "./middlewares/checkHealthStatus/checkHealthStatus.js";
 import postsRouter from "../post/router/postsRouter.js";
-import Post from "../post/model/Post.js";
-import PostController from "../post/controller/PostController.js";
 
 const app = express();
 
@@ -42,10 +40,6 @@ app.use(express.json());
 app.get("/", checkHealthStatus);
 
 app.use("/posts", postsRouter);
-
-const addPost = new PostController(Post).addPost;
-
-app.post("/posts", addPost);
 
 app.use(handleEndpointNotFound);
 

@@ -3,10 +3,15 @@ import { NextFunction, Request, Response } from "express";
 export interface PostControllerStructure {
   getPostsPage: (req: PostRequest, res: Response) => Promise<void>;
   addPost: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+  deletePost: (
+    req: PostRequest,
+    res: Response,
+    next: NextFunction,
+  ) => Promise<void>;
 }
 
 export type PostRequest = Request<
-  Record<string, unknown>,
+  PostParams,
   Record<string, unknown>,
   Record<string, unknown>,
   PostQuery
@@ -14,4 +19,8 @@ export type PostRequest = Request<
 
 export type PostQuery = {
   page: string;
+};
+
+export type PostParams = {
+  postId: string;
 };

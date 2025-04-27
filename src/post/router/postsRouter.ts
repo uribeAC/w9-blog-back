@@ -8,4 +8,6 @@ const postController = new PostController(Post);
 
 postsRouter.get("/", postController.getPostsPage);
 
+postsRouter.delete("/:postId", postController.deletePost);
+
 export default postsRouter;

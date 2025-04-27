@@ -11,5 +11,5 @@ export interface PostStructure {
 
 export type PostData = Omit<PostStructure, "_id" | "publishDate" | "tags"> & {
   publishDate?: string;
-  tags?: string[];
+  tags?: string | string[];
 };

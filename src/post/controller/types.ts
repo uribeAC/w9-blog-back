@@ -4,7 +4,7 @@ export interface PostControllerStructure {
   getPostsPage: (req: PostRequest, res: Response) => Promise<void>;
   addPost: (req: Request, res: Response, next: NextFunction) => Promise<void>;
   deletePost: (
-    req: Request,
+    req: PostRequest,
     res: Response,
     next: NextFunction,
   ) => Promise<void>;

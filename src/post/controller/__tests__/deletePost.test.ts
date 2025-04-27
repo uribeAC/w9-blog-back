@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
+import { Model } from "mongoose";
 import { luffyBentoPost } from "../../fixtures.js";
 import { PostStructure } from "../../types.js";
-import { Model } from "mongoose";
 import { luffyBentoPostDto } from "../../dto/fixtures.js";
 import PostController from "../PostController.js";
 import { PostRequest } from "../types.js";

@@ -56,6 +56,10 @@ class PostController implements PostControllerStructure {
       newPost.imageAlt = `Plato de ${foodName}`;
     }
 
+    if (!newPost.smallImageUrl) {
+      newPost.smallImageUrl = newPost.imageUrl;
+    }
+
     if (newPost.publishDate === "") {
       delete newPost.publishDate;
     }

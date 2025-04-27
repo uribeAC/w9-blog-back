@@ -36,7 +36,6 @@ const postSchema = new Schema<PostStructure>({
   },
   detailImageUrl: {
     type: String,
-    required: true,
   },
 });
 

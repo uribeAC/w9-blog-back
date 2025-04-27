@@ -50,8 +50,6 @@ class PostController implements PostControllerStructure {
       return;
     }
 
-    this.postModel.insertOne(newPost);
-
     if (!newPost.imageAlt || newPost.imageAlt === "") {
       const foodName = newPost.title.split(":")[0];
 

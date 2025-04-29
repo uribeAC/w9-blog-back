@@ -8,7 +8,7 @@
     "build:dev": "tsc --watch",
     "start:dev": "node . --watch",
     "prepare": "husky",
-    "test": "jest",
+    "test": "jest checkHealthStatus",
     "test:dev": "jest --watchAll",
     "test:coverage": "jest --coverage"
   },

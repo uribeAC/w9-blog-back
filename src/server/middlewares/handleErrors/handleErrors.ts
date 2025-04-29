@@ -16,7 +16,8 @@ const handleErrors = (
   debug("Error stack", error.stack);
 
   res.status(error.statusCode ?? 500).json({
-    error: error.stack,
+    error:
+      error instanceof ServerError ? error.message : "Internal server error",
   });
 };
 

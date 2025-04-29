@@ -1,4 +1,6 @@
+import "dotenv/config";
 import request from "supertest";
+
 import express from "express";
 import cors from "cors";
 import handleErrors from "../middlewares/handleErrors/handleErrors.js";

@@ -7,9 +7,14 @@ describe("Given a GET / endpoint", () => {
       const response = await request(app).get("/");
 
       // eslint-disable-next-line no-console
-      console.log(response);
+      console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
       const body = response.body as { message: string };
+
+      // eslint-disable-next-line no-console
+      console.log(
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      );
 
       expect(response.status).toBe(200);
       expect(body.message).toBe("pong");

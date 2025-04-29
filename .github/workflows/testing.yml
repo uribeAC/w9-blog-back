@@ -3,7 +3,7 @@ name: Testing
 on: push
 
 env:
-  DATABASE_CONNECTION_STRING: ${{ secrets.DATABASE_CONNECTION_STRING}}
+  ALLOWED_ORIGIN_PATTERNS: ${{ vars.ALLOWED_ORIGIN_PATTERNS}}
 
 jobs:
   test:

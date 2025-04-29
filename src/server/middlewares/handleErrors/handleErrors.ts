@@ -13,6 +13,7 @@ const handleErrors = (
   _next: NextFunction,
 ): void => {
   debug("Error:", error.message);
+  debug("Error stack", error.stack);
 
   res.status(error.statusCode ?? 500).json({
     error:

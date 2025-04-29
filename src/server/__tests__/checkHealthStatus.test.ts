@@ -6,6 +6,9 @@ describe("Given a GET / endpoint", () => {
     test("Then it should respond with a 200 status code and a 'pong' message", async () => {
       const response = await request(app).get("/");
 
+      // eslint-disable-next-line no-console
+      console.log(response);
+
       const body = response.body as { message: string };
 
       expect(response.status).toBe(200);

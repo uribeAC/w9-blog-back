@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import "dotenv/config";
 import request from "supertest";
 
@@ -48,16 +49,12 @@ describe("Given a GET / endpoint", () => {
   describe("When it receives a request", () => {
     test("Then it should respond with a 200 status code and a 'pong' message", async () => {
       const response = await request(app).get("/");
+      console.log(response.serverError);
+      console.log(response.error);
 
-      // eslint-disable-next-line no-console
-      console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+      console.log(response.body);
 
       const body = response.body as { message: string };
-
-      // eslint-disable-next-line no-console
-      console.log(
-        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      );
 
       expect(response.status).toBe(200);
       expect(body.message).toBe("pong");

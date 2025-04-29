@@ -12,13 +12,13 @@ const handleErrors = (
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _next: NextFunction,
 ): void => {
+  debug("Error:", error.message);
+  debug("Error stack", error.stack);
+
   res.status(error.statusCode ?? 500).json({
     error:
       error instanceof ServerError ? error.message : "Internal server error",
   });
-
-  debug("Error:", error.message);
-  debug("Error stack", error.stack);
 };
 
 export default handleErrors;

@@ -2,6 +2,9 @@ name: Testing
 
 on: push
 
+env:
+  DATABASE_CONNECTION_STRING: ${{ secrets.DATABASE_CONNECTION_STRING}}
+
 jobs:
   test:
     name: Tests passes

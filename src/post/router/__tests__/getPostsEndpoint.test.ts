@@ -36,6 +36,8 @@ describe("Given the GET /posts endpoint", () => {
         postsTotal: number;
       };
 
+      expect(response.status).toBe(200);
+
       expect(body.posts).toContainEqual(
         expect.objectContaining({
           title: "Tortilla de Betanzos: plato estrella en Casa Pepe",

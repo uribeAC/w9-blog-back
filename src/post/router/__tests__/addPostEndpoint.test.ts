@@ -1,11 +1,11 @@
 import { MongoMemoryServer } from "mongodb-memory-server";
-import connectToDatabase from "../../../database/connectToDatabase.js";
 import mongoose from "mongoose";
 import request from "supertest";
 import app from "../../../server/app.js";
+import connectToDatabase from "../../../database/connectToDatabase.js";
 import { tortillaBetanzosPostData } from "../../postDataFixtures.js";
-import Post from "../../model/Post.js";
 import { responseBodyError, responseBodyPost } from "../../types.js";
+import Post from "../../model/Post.js";
 
 let server: MongoMemoryServer;
 

@@ -1,14 +1,14 @@
 import { MongoMemoryServer } from "mongodb-memory-server";
-import connectToDatabase from "../../../database/connectToDatabase.js";
 import mongoose from "mongoose";
 import request from "supertest";
-import Post from "../../model/Post.js";
+import app from "../../../server/app.js";
+import connectToDatabase from "../../../database/connectToDatabase.js";
+import { responseBodyError, responseBodyPost } from "../../types.js";
 import {
   huevosRotosBruc159PostData,
   tortillaBetanzosPostData,
 } from "../../postDataFixtures.js";
-import app from "../../../server/app.js";
-import { PostStructureDto } from "../../dto/types.js";
+import Post from "../../model/Post.js";
 
 let server: MongoMemoryServer;
 
@@ -38,7 +38,7 @@ describe("Given the GET /posts/:postId endpoint for Huevos Rotos: el mejor plato
 
       const response = await request(app).get(`/posts/${huevosRotosId}`);
 
-      const body = response.body as { post: PostStructureDto };
+      const body = response.body as responseBodyPost;
 
       expect(response.status).toBe(200);
 
@@ -54,7 +54,7 @@ describe("Given a GET /posts/AAAAAAAAAAAAAAAAAAAAAAAA endpoint for a non existin
         `/posts/AAAAAAAAAAAAAAAAAAAAAAAA`,
       );
 
-      const body = response.body as { error: string };
+      const body = response.body as responseBodyError;
 
       expect(response.status).toBe(404);
       expect(body.error).toBe("Post not found");
@@ -67,7 +67,7 @@ describe("Given a GET /posts/12345 endpoint for a not valid post id", () => {
     test("Then it should respond with a 406 status code and a 'Id not valid' error", async () => {
       const response = await request(app).get(`/posts/12345`);
 
-      const body = response.body as { error: string };
+      const body = response.body as responseBodyError;
 
       expect(response.status).toBe(406);
       expect(body.error).toBe("Id not valid");

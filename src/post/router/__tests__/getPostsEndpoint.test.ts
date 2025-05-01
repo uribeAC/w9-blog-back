@@ -8,7 +8,7 @@ import {
   tortillaBetanzosPostData,
 } from "../../postDataFixtures.js";
 import app from "../../../server/app.js";
-import { PostStructureDto } from "../../dto/types.js";
+import { responseBodyPostsData } from "../../types.js";
 
 let server: MongoMemoryServer;
 
@@ -31,10 +31,7 @@ describe("Given the GET /posts endpoint", () => {
 
       const response = await request(app).get("/posts");
 
-      const body = response.body as {
-        posts: PostStructureDto[];
-        postsTotal: number;
-      };
+      const body = response.body as responseBodyPostsData;
 
       expect(response.status).toBe(200);
 

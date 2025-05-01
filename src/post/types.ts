@@ -25,3 +25,8 @@ export interface responseBodyError {
 export interface responseBodyPost {
   post: PostStructureDto;
 }
+
+export interface responseBodyPostsData {
+  posts: PostStructureDto[];
+  postsTotal: number;
+}

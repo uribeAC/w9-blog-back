@@ -64,12 +64,12 @@ describe("Given a GET /posts/AAAAAAAAAAAAAAAAAAAAAAAA endpoint for a non existin
 
 describe("Given a GET /posts/12345 endpoint for a not valid post id", () => {
   describe("When it receives a request", () => {
-    test("Then it should respond with a 406 status code and a 'Id not valid' error", async () => {
+    test("Then it should respond with a 400 status code and a 'Id not valid' error", async () => {
       const response = await request(app).get(`/posts/12345`);
 
       const body = response.body as responseBodyError;
 
-      expect(response.status).toBe(406);
+      expect(response.status).toBe(400);
       expect(body.error).toBe("Id not valid");
     });
   });

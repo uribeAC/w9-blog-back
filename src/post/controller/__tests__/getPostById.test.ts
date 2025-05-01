@@ -67,8 +67,8 @@ describe("Given the getPostById method of PostController", () => {
         exec: jest.fn().mockResolvedValue(null),
       }),
     };
-    test("Then it should call the received next method with 406, 'Id not valid' error", async () => {
-      const error = new ServerError(406, "Id not valid");
+    test("Then it should call the received next method with 400, 'Id not valid' error", async () => {
+      const error = new ServerError(400, "Id not valid");
       const postController = new PostController(
         postModel as Model<PostStructure>,
       );

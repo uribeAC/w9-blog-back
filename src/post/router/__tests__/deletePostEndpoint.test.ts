@@ -66,4 +66,15 @@ describe("Given the DELETE /posts/:postId endpoint", () => {
       expect(body.error).toBe("Post not found");
     });
   });
+
+  describe("When it receives a request with a not valid Id", () => {
+    test("Then it should respond with a 400 status code and a 'Id not valid' error", async () => {
+      const response = await request(app).delete(`/posts/12345`);
+
+      const body = response.body as responseBodyError;
+
+      expect(response.status).toBe(400);
+      expect(body.error).toBe("Id not valid");
+    });
+  });
 });

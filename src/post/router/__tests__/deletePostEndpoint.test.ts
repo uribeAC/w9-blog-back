@@ -19,13 +19,22 @@ beforeAll(async () => {
   await connectToDatabase(mongoDbConnectionString);
 });
 
+afterEach(async () => {
+  await Post.deleteMany(
+    {
+      title: "Tortilla de Betanzos: plato estrella en Casa Pepe",
+    },
+    { title: "Huevos Rotos: el mejor plato de Bruc, 159" },
+  );
+});
+
 afterAll(async () => {
   mongoose.disconnect();
   await server.stop();
 });
 
-describe("Given the GET /posts/:postId endpoint for Huevos Rotos: el mejor plato de Bruc, 159 post Id", () => {
-  describe("When it receives a request", () => {
+describe("Given the DELETE /posts/:postId endpoint", () => {
+  describe("When it receives a request with postId as Huevos Rotos: el mejor plato de Bruc, 159 post Id", () => {
     test("Then it should respond with a 200 status code and Huevos Rotos: el mejor plato de Bruc, 159 post", async () => {
       const posts = await Post.create(
         huevosRotosBruc159PostData,
@@ -36,21 +45,18 @@ describe("Given the GET /posts/:postId endpoint for Huevos Rotos: el mejor plato
         (post) => post.title === "Huevos Rotos: el mejor plato de Bruc, 159",
       )!._id;
 
-      const response = await request(app).get(`/posts/${huevosRotosId}`);
+      const response = await request(app).delete(`/posts/${huevosRotosId}`);
 
       const body = response.body as responseBodyPost;
 
       expect(response.status).toBe(200);
-
       expect(body.post.title).toBe("Huevos Rotos: el mejor plato de Bruc, 159");
     });
   });
-});
 
-describe("Given a GET /posts/AAAAAAAAAAAAAAAAAAAAAAAA endpoint for a non existing post", () => {
-  describe("When it receives a request", () => {
+  describe("When it receives a request with a post Id that it's not in the database", () => {
     test("Then it should respond with a 404 status code and a 'Post not found' error", async () => {
-      const response = await request(app).get(
+      const response = await request(app).delete(
         `/posts/AAAAAAAAAAAAAAAAAAAAAAAA`,
       );
 
@@ -60,12 +66,10 @@ describe("Given a GET /posts/AAAAAAAAAAAAAAAAAAAAAAAA endpoint for a non existin
       expect(body.error).toBe("Post not found");
     });
   });
-});
 
-describe("Given a GET /posts/12345 endpoint for a not valid post id", () => {
-  describe("When it receives a request", () => {
+  describe("When it receives a request with a not valid Id", () => {
     test("Then it should respond with a 400 status code and a 'Id not valid' error", async () => {
-      const response = await request(app).get(`/posts/12345`);
+      const response = await request(app).delete(`/posts/12345`);
 
       const body = response.body as responseBodyError;
 

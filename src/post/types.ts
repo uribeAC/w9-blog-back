@@ -1,3 +1,5 @@
+import { PostStructureDto } from "./dto/types.js";
+
 export interface PostStructure {
   _id: string;
   publishDate: Date;
@@ -15,3 +17,16 @@ export type PostData = Omit<PostStructure, "_id" | "publishDate" | "tags"> & {
   publishDate?: string;
   tags?: string | string[];
 };
+
+export interface responseBodyError {
+  error: string;
+}
+
+export interface responseBodyPost {
+  post: PostStructureDto;
+}
+
+export interface responseBodyPostsData {
+  posts: PostStructureDto[];
+  postsTotal: number;
+}

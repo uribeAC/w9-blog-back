@@ -60,6 +60,22 @@ describe("Given the addPost method of PostController", () => {
 
       expect(res.json).toHaveBeenCalledWith({ post: paellaMariscosPost });
     });
+
+    test("Then Paella de Mariscos en El Palmar completed post should have Dish of Paella de Mariscos as image description", async () => {
+      await postController.addPost(
+        req as Request,
+        res as Response,
+        next as NextFunction,
+      );
+
+      expect(res.json).toHaveBeenCalledWith(
+        expect.objectContaining({
+          post: expect.objectContaining({
+            imageAlt: "Plato de Paella de Mariscos",
+          }),
+        }),
+      );
+    });
   });
 
   describe("When it receives the existent 'Huevos rotos: el mejor plato de Bruc, 159' post data", () => {

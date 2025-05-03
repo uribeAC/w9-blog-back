@@ -3,6 +3,7 @@ import { Model } from "mongoose";
 import { PostData, PostStructure } from "../types.js";
 import { PostControllerStructure, PostRequest } from "./types.js";
 import ServerError from "../../server/ServerError/ServerError.js";
+import { PostDataDto } from "../dto/types.js";
 
 class PostController implements PostControllerStructure {
   constructor(private postModel: Model<PostStructure>) {}
@@ -34,14 +35,13 @@ class PostController implements PostControllerStructure {
     res: Response,
     next: NextFunction,
   ): Promise<void> => {
-    const newPost = req.body as PostData;
+    const { author, content, imageAlt, imageUrl, publishDate, tags, title } =
+      req.body as PostDataDto;
 
     const posts = await this.postModel.find().exec();
 
     if (
-      posts.some(
-        (post) => post.title.toLowerCase() === newPost.title.toLowerCase(),
-      )
+      posts.some((post) => post.title.toLowerCase() === title.toLowerCase())
     ) {
       const error = new ServerError(409, "Post already exists");
 
@@ -50,36 +50,35 @@ class PostController implements PostControllerStructure {
       return;
     }
 
-    if (!newPost.imageAlt || newPost.imageAlt === "") {
-      const foodName = newPost.title.split(":")[0];
+    const newImageAlt = imageAlt ? imageAlt : `Plato de ${title.split(":")[0]}`;
 
-      newPost.imageAlt = `Plato de ${foodName}`;
+    const trimmedTags = tags
+      .replaceAll(/[.,;#]/g, " ")
+      .replaceAll(/\s/g, " ")
+      .split(" ")
+      .filter((tag) => tag !== "");
+
+    const createdPost: PostData = {
+      author,
+      content,
+      imageUrl,
+      smallImageUrl: imageUrl,
+      detailImageUrl: imageUrl,
+      imageAlt: newImageAlt,
+      title,
+      publishDate,
+      tags: trimmedTags,
+    };
+
+    if (createdPost.publishDate === "") {
+      delete createdPost.publishDate;
     }
 
-    if (!newPost.smallImageUrl) {
-      newPost.smallImageUrl = newPost.imageUrl;
+    if (!createdPost.tags![0]) {
+      delete createdPost.tags;
     }
 
-    if (newPost.publishDate === "") {
-      delete newPost.publishDate;
-    }
-
-    if (newPost.tags === "") {
-      delete newPost.tags;
-    }
-
-    if (newPost.tags) {
-      const tags = newPost.tags as string;
-      const trimmedTags = tags
-        .replaceAll(/[.,;#]/g, " ")
-        .replaceAll(/\s/g, " ")
-        .split(" ")
-        .filter((tag) => tag !== "");
-
-      newPost.tags = trimmedTags;
-    }
-
-    const addedPost = await this.postModel.insertOne(newPost);
+    const addedPost = await this.postModel.insertOne(createdPost);
 
     res.status(201).json({ post: addedPost });
   };

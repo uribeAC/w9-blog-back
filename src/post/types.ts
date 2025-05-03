@@ -15,7 +15,7 @@ export interface PostStructure {
 
 export type PostData = Omit<PostStructure, "_id" | "publishDate" | "tags"> & {
   publishDate?: string;
-  tags?: string | string[];
+  tags?: string[];
 };
 
 export interface responseBodyError {

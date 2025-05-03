@@ -2,7 +2,7 @@ import { Model } from "mongoose";
 import { Request, Response } from "express";
 import { PostStructure } from "../../types.js";
 import PostController from "../PostController.js";
-import { animeFoodPosts } from "../../fixtures.js";
+import { animeFoodPosts } from "../../fixtures/fixtures.js";
 import { PostRequest } from "../types.js";
 
 let originalAnimeFoodPosts = [...animeFoodPosts];

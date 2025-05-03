@@ -7,12 +7,12 @@ import { NextFunction } from "express";
 import {
   huevosRotosBruc159PostData,
   paellaMariscosPostData,
-} from "../../postDataFixtures.js";
+} from "../../fixtures/fixturesDto.js";
 import {
   animeFoodPosts,
   huevosRotosBruc159Post,
   paellaMariscosPost,
-} from "../../fixtures.js";
+} from "../../fixtures/fixtures.js";
 
 beforeEach(() => {
   jest.clearAllMocks();

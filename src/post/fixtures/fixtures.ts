@@ -1,4 +1,4 @@
-import { PostStructure } from "./types.js";
+import { PostStructure } from "../types.js";
 
 export const sailorMoonCurryPanPost: PostStructure = {
   _id: "1",

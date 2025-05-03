@@ -7,7 +7,7 @@ import { responseBodyError, responseBodyPost } from "../../types.js";
 import {
   huevosRotosBruc159PostData,
   tortillaBetanzosPostData,
-} from "../../postDataFixtures.js";
+} from "../../fixtures/fixturesDto.js";
 import Post from "../../model/Post.js";
 
 let server: MongoMemoryServer;

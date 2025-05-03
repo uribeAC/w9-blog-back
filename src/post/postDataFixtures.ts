@@ -1,7 +1,6 @@
 import { PostDataDto } from "./dto/types.js";
-import { PostData } from "./types.js";
 
-export const huevosRotosBruc159PostData: PostData = {
+export const huevosRotosBruc159PostData: PostDataDto = {
   title: "Huevos Rotos: el mejor plato de Bruc, 159",
   content: `Los huevos rotos son una joya sencilla pero poderosa de la gastronomía española. En Bruc, 159, llevan este plato clásico a otro nivel. El plato se presenta con una cama de patatas fritas doradas, crujientes por fuera y tiernas por dentro, coronadas con huevos fritos de yema vibrante. Al romper los huevos sobre las patatas, se crea una mezcla cremosa y sabrosa que es pura felicidad. Puedes acompañarlos con jamón ibérico, chistorra o incluso trufa, según el antojo. El ambiente del lugar es acogedor, con una atención cercana que hace que cada visita sea especial. Ideal tanto para un almuerzo informal como para una cena relajada. Un plato imprescindible si quieres saborear lo mejor de la cocina tradicional española con un toque casero y auténtico.`,
   imageUrl: "http://huevosrotos.webp",
@@ -9,9 +8,11 @@ export const huevosRotosBruc159PostData: PostData = {
   author: "Mario Vaquerizo",
   smallImageUrl: "http://huevosrotos.webp",
   detailImageUrl: "http://huevosrotos.webp",
+  publishDate: "",
+  tags: "",
 };
 
-export const tortillaBetanzosPostData: PostData = {
+export const tortillaBetanzosPostData: PostDataDto = {
   title: "Tortilla de Betanzos: plato estrella en Casa Pepe",
   content: `La tortilla de Betanzos es todo un emblema de la cocina gallega, y en Casa Pepe saben rendirle homenaje. Con su textura jugosa y su interior casi líquido, esta tortilla celebra la pureza de los ingredientes: patatas de calidad, huevos fresquísimos y un toque justo de sal. Sin cebolla, como dicta la tradición, y con ese característico color dorado que invita a probarla de inmediato. El local respira tradición y sencillez, haciendo que cada visita sea como una escapada al corazón de Galicia. Un plato sencillo pero lleno de matices, perfecto para quienes buscan autenticidad en cada bocado.`,
   imageUrl: "http://tortillabetanzos.webp",
@@ -19,6 +20,8 @@ export const tortillaBetanzosPostData: PostData = {
   author: "Cristina Pardo",
   smallImageUrl: "http://tortillabetanzos.webp",
   detailImageUrl: "http://tortillabetanzos.webp",
+  publishDate: "",
+  tags: "",
 };
 
 export const paellaMariscosPostData: PostDataDto = {

@@ -1,4 +1,4 @@
-import { PostDataDto } from "./dto/types.js";
+import { PostDataDto, PostStructureDto } from "../dto/types.js";
 
 export const huevosRotosBruc159PostData: PostDataDto = {
   title: "Huevos Rotos: el mejor plato de Bruc, 159",
@@ -40,3 +40,17 @@ export const postsDataDixtures = [
   huevosRotosBruc159PostData,
   tortillaBetanzosPostData,
 ];
+
+export const luffyBentoPostDto: PostStructureDto = {
+  _id: "680d4b3e7a949d9fe3199b37",
+  author: "Sanji el Cocinero Galante",
+  content:
+    "Del East Blue a tu cocina: aprende a preparar el famoso bentō que Luffy ama. ¡Ideal para llevar al trabajo o picnic!",
+  imageAlt: "Bentō de One Piece",
+  imageUrl: "https://example.com/onepiece-bento.jpg",
+  publishDate: "2025-04-21",
+  tags: ["onepiece", "bento", "animefood"],
+  title: "Bentō pirata: la receta favorita de Luffy 🏴‍☠️",
+  smallImageUrl: "",
+  detailImageUrl: "",
+};

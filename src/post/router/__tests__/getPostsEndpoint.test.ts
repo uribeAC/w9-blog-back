@@ -6,7 +6,7 @@ import Post from "../../model/Post.js";
 import {
   huevosRotosBruc159PostData,
   tortillaBetanzosPostData,
-} from "../../postDataFixtures.js";
+} from "../../fixtures/fixturesDto.js";
 import app from "../../../server/app.js";
 import { responseBodyPostsData } from "../../types.js";
 

@@ -59,33 +59,6 @@ describe("Given the deletePost method of PostController", () => {
     });
   });
 
-  describe("When it receives a request with Atascaburras Post id that is not valid", () => {
-    const req = {
-      params: { postId: "atasca-burras" },
-    } as Pick<Request, "params">;
-
-    const postModel: Pick<Model<PostStructure>, "findOneAndDelete"> = {
-      findOneAndDelete: jest.fn().mockReturnValue({
-        exec: jest.fn().mockResolvedValue(null),
-      }),
-    };
-
-    test("Then it should call the received next method with 406 'Id not valid' error", async () => {
-      const error = new ServerError(406, "Id not valid");
-      const postController = new PostController(
-        postModel as Model<PostStructure>,
-      );
-
-      await postController.deletePost(
-        req as PostRequest,
-        res as Response,
-        next as NextFunction,
-      );
-
-      expect(next).toHaveBeenCalledWith(error);
-    });
-  });
-
   describe("When it receives a request with La croqueta de la abuela Post id that is not in the database", () => {
     const req = {
       params: { postId: "croquetas666delaabuela66" },

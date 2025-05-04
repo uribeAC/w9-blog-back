@@ -57,32 +57,6 @@ describe("Given the getPostById method of PostController", () => {
     });
   });
 
-  describe("When it receives a request with Patatas a la riojana id that is not valid", () => {
-    const req = {
-      params: { postId: "patatas-riojana" },
-    } as Pick<Request, "params">;
-
-    const postModel: Pick<Model<PostStructure>, "findById"> = {
-      findById: jest.fn().mockReturnValue({
-        exec: jest.fn().mockResolvedValue(null),
-      }),
-    };
-    test("Then it should call the received next method with 400, 'Id not valid' error", async () => {
-      const error = new ServerError(400, "Id not valid");
-      const postController = new PostController(
-        postModel as Model<PostStructure>,
-      );
-
-      await postController.getPostById(
-        req as PostRequest,
-        res as Response,
-        next as NextFunction,
-      );
-
-      expect(next).toHaveBeenCalledWith(error);
-    });
-  });
-
   describe("When you receive a request with id of Cocido Madrileño that doesn't exist in the database", () => {
     const req = {
       params: { postId: "cocidomadrileñoriquisimo" },

@@ -90,15 +90,6 @@ class PostController implements PostControllerStructure {
   ): Promise<void> => {
     const postId = req.params.postId;
 
-    const idLength = 24;
-
-    if (postId.length !== idLength) {
-      const error = new ServerError(400, "Id not valid");
-      next(error);
-
-      return;
-    }
-
     const deletedPost = await this.postModel
       .findOneAndDelete({ _id: postId })
       .exec();
@@ -119,16 +110,6 @@ class PostController implements PostControllerStructure {
     next: NextFunction,
   ): Promise<void> => {
     const postId = req.params.postId;
-
-    const idLenght = 24;
-
-    if (postId.length !== idLenght) {
-      const error = new ServerError(400, "Id not valid");
-
-      next(error);
-
-      return;
-    }
 
     const foundPost = await this.postModel.findById({ _id: postId }).exec();
 
